@@ -10,19 +10,22 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.RequiresApi;
 import android.util.Log;
+import android.util.TimeUtils;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 
+
 import com.swipper.library.Swipper;
 
 import cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager;
 
-public class MainActivity extends Swipper {
+public class MainActivity extends Swipper  {
     private AutoScrollViewPager viewPager;
     customViewGroup view;
+    TinyDB tb;
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,15 @@ public class MainActivity extends Swipper {
 
         setContentView(R.layout.activity_main);
         set(this);
+        tb=new TinyDB(this);
+        if(tb.getString("orientation").equals("null") || tb.getString("orientation").isEmpty())
+        {
+            Intent mainIntent = new Intent(MainActivity.this,settings_new.class );
+            //   mainIntent.putExtra("hi", a);mainIntent.putExtra("news","null");
+            // mainIntent.putExtra("title", x1.getText().toString());
+            startActivity(mainIntent);
+finish();
+        }
         WindowManager.LayoutParams localLayoutParams = new WindowManager.LayoutParams();
         localLayoutParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
         localLayoutParams.gravity = Gravity.TOP;
@@ -58,16 +70,18 @@ public class MainActivity extends Swipper {
         enableBrightness();
         enableVolume();
         view = new customViewGroup(this);
+        DepthTransformation depthTransformation = new DepthTransformation();
 //      manager.addView(view, localLayoutParams);
       //  startLockTask();
         viewPager = (AutoScrollViewPager)findViewById(R.id.view_pager);
-        PagerAdapter padapter=new PagerAdapter(getFragmentManager());
+        PagerAdapter padapter=new PagerAdapter(getFragmentManager(),this);
         viewPager.setAdapter(padapter);
-        viewPager.setInterval(92000);
-        viewPager.setOffscreenPageLimit(1);
-        viewPager.startAutoScroll();
+        viewPager.setInterval(920000000);
+        viewPager.setPageTransformer(true, depthTransformation);
+     //   viewPager.setOffscreenPageLimit(2);
+        viewPager.stopAutoScroll();
         viewPager.setBorderAnimation(false);
-        viewPager.setScrollDurationFactor(6);
+     //   viewPager.setScrollDurationFactor(6);
         Volume(Orientation.CIRCULAR);
     }
     @Override
@@ -118,4 +132,11 @@ public class MainActivity extends Swipper {
             return true;
         }
     }
+    public void start_scroll()
+    {
+        viewPager.scrollOnce();
+
+    }
+
 }
+

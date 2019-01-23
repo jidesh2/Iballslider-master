@@ -99,6 +99,7 @@ public class fragmentthree extends Fragment {
 
         }
     }
+
     private void setupVolumeBar() {
         final AudioManager audioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
         volumeSeekBar.setMax(audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC));

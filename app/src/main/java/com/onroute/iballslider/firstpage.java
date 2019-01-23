@@ -42,6 +42,12 @@ public class firstpage extends Fragment {
         });
 
 */
+//http://zoomscreens.com/indonesia/adothers.php   --video
+        //http://zoomscreens.com/indonesia/adothersforvideo.php  --image
+
+        //
+
+      //  http://zoomscreens.com/indonesia/banner.php  --url
 
         getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);

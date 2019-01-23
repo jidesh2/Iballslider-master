@@ -1,6 +1,7 @@
 package com.onroute.iballslider;
 
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.support.v13.app.FragmentPagerAdapter;
@@ -12,15 +13,19 @@ import android.view.ViewGroup;
  */
 public class PagerAdapter extends FragmentPagerAdapter {
     String ids12;
+TinyDB tb;
+    public PagerAdapter(FragmentManager fm, Activity activity) {
 
-    public PagerAdapter(FragmentManager fm) {
         super(fm);
+        tb=new TinyDB(activity);
     }
+
 
 
     @Override
     public int getCount() {
-        return 1;
+
+        return 3;
     }
 
 
@@ -28,23 +33,43 @@ public class PagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int arg0) {
 
-        switch (arg0) {
-            case 0:
-               // return new FragmentSimpleLoginButton();
-                return new Godrej_page();
+if(tb.getString("orientation").equals("portrait"))
+{
+    switch (arg0) {
+        case 0:
+            return new fragmentone();
+        // return new FragmentSimpleLoginButton();
 
-       //     return new netflix();
-            case 1:
-                return new fragmenttwo();
-             //   return new fragmentfour();
+        //     return new netflix();
+        case 1:
+            return new fragmenttwo();
+        //   return new fragmentfour();
 
 
         case 2:
 
-            return new firstpage();
+            return new Godrej_page();
 
-     case 3:
-             return new fragmentaka();
+
+    }
+}
+else {
+
+    switch (arg0) {
+        case 0:
+            return new fragmentone();
+        // return new FragmentSimpleLoginButton();
+
+        //     return new netflix();
+        case 1:
+            return new fragmenttwo();
+        //   return new fragmentfour();
+
+
+        case 2:
+
+            return new Godrej_page();
+
 
 
          /*   case 4:
@@ -52,7 +77,9 @@ public class PagerAdapter extends FragmentPagerAdapter {
 
                 */
 
-        }
+
+    }
+}
         return null;
     }
     @Override
