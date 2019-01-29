@@ -1,5 +1,8 @@
 <resources>
-    <string name="app_name">Iballslider</string>
+    <string name="app_name">ZoomScreens Signage</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_settings_new">settings_new</string>
+    <string name="title_activity_player_view">ZoomScreens Signage</string>
+    <string name="todo">TODO</string>
+
 </resources>

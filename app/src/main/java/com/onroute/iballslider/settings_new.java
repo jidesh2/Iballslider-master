@@ -25,7 +25,7 @@ landscape.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
         tb.putString("orientation","landscape");
-        Intent mainIntent = new Intent(settings_new.this,MainActivity.class );
+        Intent mainIntent = new Intent(settings_new.this,PLayer_view.class );
         //   mainIntent.putExtra("hi", a);mainIntent.putExtra("news","null");
         // mainIntent.putExtra("title", x1.getText().toString());
         startActivity(mainIntent);
@@ -38,7 +38,7 @@ landscape.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 tb.putString("orientation","portrait");
-                Intent mainIntent = new Intent(settings_new.this,MainActivity.class );
+                Intent mainIntent = new Intent(settings_new.this,PLayer_view.class );
                 //   mainIntent.putExtra("hi", a);mainIntent.putExtra("news","null");
                 // mainIntent.putExtra("title", x1.getText().toString());
                 startActivity(mainIntent);

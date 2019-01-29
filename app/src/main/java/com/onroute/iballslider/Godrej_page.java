@@ -87,7 +87,7 @@ public class Godrej_page extends Fragment implements AdvancedWebView.Listener {
         mWebView.getSettings().setUseWideViewPort(true);
         Toast.makeText(getActivity(),"played_visible_3",Toast.LENGTH_LONG).show();
         boolean preventCaching = true;
-        getad(viewroot);
+
 
 
 
@@ -128,6 +128,7 @@ public class Godrej_page extends Fragment implements AdvancedWebView.Listener {
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
         if (isVisibleToUser) {
+            getad(viewroot);
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override

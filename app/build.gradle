@@ -34,7 +34,7 @@ dependencies {
     implementation 'com.github.delight-im:Android-AdvancedWebView:v3.0.0'
     implementation 'com.android.support:design:26.1.0'
     implementation 'com.swipper.library:library:0.1.1'
-   implementation 'com.google.code.gson:gson:2.7'
+    implementation 'com.google.code.gson:gson:2.7'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'

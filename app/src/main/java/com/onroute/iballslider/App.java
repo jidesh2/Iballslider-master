@@ -28,6 +28,7 @@ public class App extends Application {
     private String slat;
     private String slong;
     String idd;
+    String URL;
     TinyDB tb;
     private static boolean a;
     public static String YOUTUBE_API_KEY;
@@ -61,6 +62,7 @@ public class App extends Application {
     public String getPhone_number() {
         return phone_number;
     }
+
     //public String getPhone_number() {
    //     return phone_number;
 
@@ -151,6 +153,26 @@ return YOUTUBE_API_KEY;
         mInstance = this;
 
         tb=new TinyDB(this);
+        if (tb.getString("orientation").equals("landscape")) {
+            URL= "http://zoomscreens.com/cms/landscape.php";
+
+
+
+        }
+        else if(tb.getString("orientation").equals("portrait"))
+        {
+            URL = "http://zoomscreens.com/cms/potrait.php";
+
+
+
+        }
+        else
+        {
+
+            URL = "http://zoomscreens.com/cms/landscape.php";
+
+
+        }
    // }tion graph
         mContext = getApplicationContext();
       //  applicationGraph = ObjectGraph.create().plus(new ActivityModule(this));
@@ -197,88 +219,13 @@ return YOUTUBE_API_KEY;
     }
 
     public void AppConfig() {
-        if (tb.getString("orientation").equals("landscape")) {
-            String URL_GEOADENGINE2 = "http://zoomscreens.com/indonesia/adothers.php";
 
-            String URL_LOGIN = "http://onroutetaxitech.bitnamiapp.com/scoretable.php";
-            String URL_CONTENT = "http://onroutetaxitech.bitnamiapp.com/contentserver.php";
-
-
-            String URL_SKYLOOK = "http://onroutetaxitech.bitnamiapp.com/ssupdateengine.php";
-            String URL_SKYCPC = "http://onroutetaxitech.bitnamiapp.com/sscpc.php";
-            String URL_SCOREADDER = "http://zoomscreens.com/indonesia/adothersforvideo.php";
-            String URL_EXISTING = "http://onroutetaxitech.bitnamiapp.com/exscont.php";
-            String URL_SUGGETIONS = "http://onroutetaxitech.bitnamiapp.com/suggetions.php";
-            String URL_TVSHOWS = "http://onroutetaxitech.bitnamiapp.com/tv2ui2.php";
-            String URL_ADENGINE = "http://zoomscreens.com/indonesia/adengine.php";
-            String URL_GEOADENGINE = "http://onroutetaxitech.bitnamiapp.com/geoad.php";
-            //	public static String URL_YOUT = "http://onroutetaxitech.bitnamiapp.com/adothersforvideo.php";
-//	public static String URL_GEOADENGINE2 = "http://onroutetaxitech.bitnamiapp.com/adothers.php";
-            String URL_ADUPDATE = "http://onroutetaxitech.bitnamiapp.com/updateengine.php";
-            String URL_DELETE = "http://onroutetaxitech.bitnamiapp.com/delete.php";
-            String URL_CPC = "http://onroutetaxitech.bitnamiapp.com/cpc.php";
-            String URL_BANNERCPC = "http://onroutetaxitech.bitnamiapp.com/bannercpc.php";
-            String URL_BANNERLOOK = "http://onroutetaxitech.bitnamiapp.com/bannercount.php";
-            String URL_BANNER = "http://zoomscreens.com/indonesia/banner.php";
-            String URL_END = "http://onroutetaxitech.bitnamiapp.com/timediffupdate.php";
-
-
-        }
-        else if(tb.getString("orientation").equals("portrait"))
-        {
-            String URL_GEOADENGINE2 = "http://zoomscreens.com/indonesia/adothers.php";
-
-            String URL_LOGIN = "http://onroutetaxitech.bitnamiapp.com/scoretable.php";
-            String URL_CONTENT = "http://onroutetaxitech.bitnamiapp.com/contentserver.php";
-
-
-            String URL_SKYLOOK = "http://onroutetaxitech.bitnamiapp.com/ssupdateengine.php";
-            String URL_SKYCPC = "http://onroutetaxitech.bitnamiapp.com/sscpc.php";
-            String URL_SCOREADDER = "http://zoomscreens.com/indonesia/adothersforvideo.php";
-            String URL_EXISTING = "http://onroutetaxitech.bitnamiapp.com/exscont.php";
-            String URL_SUGGETIONS = "http://onroutetaxitech.bitnamiapp.com/suggetions.php";
-            String URL_TVSHOWS = "http://onroutetaxitech.bitnamiapp.com/tv2ui2.php";
-            String URL_ADENGINE = "http://zoomscreens.com/indonesia/adengine.php";
-            String URL_GEOADENGINE = "http://onroutetaxitech.bitnamiapp.com/geoad.php";
-            //	public static String URL_YOUT = "http://onroutetaxitech.bitnamiapp.com/adothersforvideo.php";
-//	public static String URL_GEOADENGINE2 = "http://onroutetaxitech.bitnamiapp.com/adothers.php";
-            String URL_ADUPDATE = "http://onroutetaxitech.bitnamiapp.com/updateengine.php";
-            String URL_DELETE = "http://onroutetaxitech.bitnamiapp.com/delete.php";
-            String URL_CPC = "http://onroutetaxitech.bitnamiapp.com/cpc.php";
-            String URL_BANNERCPC = "http://onroutetaxitech.bitnamiapp.com/bannercpc.php";
-            String URL_BANNERLOOK = "http://onroutetaxitech.bitnamiapp.com/bannercount.php";
-            String URL_BANNER = "http://zoomscreens.com/indonesia/banner.php";
-            String URL_END = "http://onroutetaxitech.bitnamiapp.com/timediffupdate.php";
-
-        }
-        else
-        {
-
-            String URL_GEOADENGINE2 = "http://zoomscreens.com/indonesia/adothers.php";
-
-            String URL_LOGIN = "http://onroutetaxitech.bitnamiapp.com/scoretable.php";
-            String URL_CONTENT = "http://onroutetaxitech.bitnamiapp.com/contentserver.php";
-
-
-            String URL_SKYLOOK = "http://onroutetaxitech.bitnamiapp.com/ssupdateengine.php";
-            String URL_SKYCPC = "http://onroutetaxitech.bitnamiapp.com/sscpc.php";
-            String URL_SCOREADDER = "http://zoomscreens.com/indonesia/adothersforvideo.php";
-            String URL_EXISTING = "http://onroutetaxitech.bitnamiapp.com/exscont.php";
-            String URL_SUGGETIONS = "http://onroutetaxitech.bitnamiapp.com/suggetions.php";
-            String URL_TVSHOWS = "http://onroutetaxitech.bitnamiapp.com/tv2ui2.php";
-            String URL_ADENGINE = "http://zoomscreens.com/indonesia/adengine.php";
-            String URL_GEOADENGINE = "http://onroutetaxitech.bitnamiapp.com/geoad.php";
-            //	public static String URL_YOUT = "http://onroutetaxitech.bitnamiapp.com/adothersforvideo.php";
-//	public static String URL_GEOADENGINE2 = "http://onroutetaxitech.bitnamiapp.com/adothers.php";
-            String URL_ADUPDATE = "http://onroutetaxitech.bitnamiapp.com/updateengine.php";
-            String URL_DELETE = "http://onroutetaxitech.bitnamiapp.com/delete.php";
-            String URL_CPC = "http://onroutetaxitech.bitnamiapp.com/cpc.php";
-            String URL_BANNERCPC = "http://onroutetaxitech.bitnamiapp.com/bannercpc.php";
-            String URL_BANNERLOOK = "http://onroutetaxitech.bitnamiapp.com/bannercount.php";
-            String URL_BANNER = "http://zoomscreens.com/indonesia/banner.php";
-            String URL_END = "http://onroutetaxitech.bitnamiapp.com/timediffupdate.php";
-        }
     }
+public String getURL()
+{
+    return URL;
 
+
+}
 
 }
