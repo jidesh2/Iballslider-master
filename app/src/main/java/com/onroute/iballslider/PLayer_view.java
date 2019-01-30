@@ -57,6 +57,9 @@ public class PLayer_view extends AppCompatActivity {
         final WindowManager manager = ((WindowManager) getApplicationContext()
                 .getSystemService(Context.WINDOW_SERVICE));
 
+        ScreenOrientationEnforcer screenOrientationEnforcer
+                = new ScreenOrientationEnforcer(this);
+
 
          a = (App)getApplication();
 
@@ -93,6 +96,7 @@ public class PLayer_view extends AppCompatActivity {
             setContentView(R.layout.activity_player_view);
 
         }
+        screenOrientationEnforcer.start();
         View_1=findViewById(R.id.View1);
         View_2=findViewById(R.id.View2);
         im_1=findViewById(R.id.landimg1);
